@@ -1,38 +1,191 @@
+/*
+Todo:
+-active style must be added to the buttons:
+    -scale transform 90%
+    -darker (pressed in colour) with transition prop to make it look more natural
+    -output positioning and styling
+    -functionality
+*/
+
+#root {
+    --electron-blue: #0984e3;
+    --robins-egg-blue: #00cec9;
+    --sour-lemon: #ffeaa7;
+    --bright-yarrow: #fdcb6e;
+    --first-date: #fab1a0;
+    --orangeville: #e17055;
+    --light-greenish-blue: #55efc4;
+    --mint-leaf: #00b894;
+    --pink-glamour: #ff7675;
+    --chi-gong: #d63031;
+
+    margin-top: 0;
+}
+
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(110deg, var(--sour-lemon), var(--bright-yarrow));
+  margin-top: auto auto;
+  overflow: auto;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#calculator {
+    width: 19rem;
+    /* height: 27rem; */
+    margin: 15% auto;
+    background-image: linear-gradient(160deg, var(--electron-blue), var(--robins-egg-blue));
+    border-radius: 2rem;
+    box-shadow: 2px 2px 8px var(--orangeville);
+    overflow: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#display {
+    width: 90%;
+    height: 8rem;
+    background: linear-gradient(160deg, var(--first-date), var(--sour-lemon)) ;
+    margin: 1rem auto;
+    border-radius: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button {
+    margin: auto;
+    text-align: center;
+    width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+#buttons {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5rem;
+    grid-template-areas: 
+    "ac ac d m"
+    "seven eight nine s"
+    "four five six p"
+    "one two three e"
+    "zero zero dec e";
+    margin: 0 1rem 1rem;
+    
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.number-buttons {
+    width: 100%; /*3rem*/
+    height: 3rem;
+    border: 1px solid var(--bright-yarrow);
+    border-radius: 0.5rem;
+    background-color: var(--sour-lemon);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--electron-blue);
+}
+
+
+.operator-buttons {
+    /* width: 3rem; */
+    height: 3rem;
+    border: 1px solid var(--orangeville);
+    border-radius: 0.5rem;
+    background-color: var(--first-date);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--electron-blue);
+    text-align: center;
+    margin: auto;
+    margin-top: 0;
+}
+
+#clear {
+    /* width: 5rem; */
+    height: 3rem;
+    border: 1px solid var(--chi-gong);
+    border-radius: 0.5rem;
+    background-color: var(--pink-glamour);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--light-greenish-blue);
+    grid-area: ac;
+}
+
+#equals {
+    /* width: 4rem; */
+    /* height: 3rem; */
+    border: 1px solid #00b894;
+    border-radius: 0.5rem;
+    background-color: #55efc4;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--electron-blue);
+    grid-area: e;
+    margin: 0; /* for some reason I had to specify that there isn't a margin, even though the "styles" section of devtools isn't showing a margin present" */
+}
+
+#decimal {
+    /* width: 3rem; */
+    height: 3rem;
+    border: 1px solid var(--orangeville);
+    border-radius: 0.5rem;
+    background-color: var(--first-date);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--electron-blue);
+    grid-area: dec;
+}
+
+#add {
+    grid-area: p;
+}
+
+#subtract {
+    grid-area: s;
+}
+
+#multiply {
+    grid-area: m;
+}
+
+#divide {
+    grid-area: d;
+}
+
+#one {
+    grid-area: one;
+}
+
+#two {
+    grid-area: two;
+}
+
+#three {
+    grid-area: three;
+}
+
+#four {
+    grid-area: four;
+}
+
+#five {
+    grid-area: five;
+}
+
+#six {
+    grid-area: six;
+}
+
+#seven {
+    grid-area: seven;
+}
+
+#eight {
+    grid-area: eight;
+}
+
+#nine {
+    grid-area: nine;
+}
+
+#zero {
+    grid-area: zero;
 }
